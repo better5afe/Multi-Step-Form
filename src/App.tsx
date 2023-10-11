@@ -1,5 +1,11 @@
+import FormNavigation from './components/navigation/FormNavigation';
+
 const App = () => {
-	return <div>App</div>;
+	return (
+		<main className='font-sans text-sm large:text-base text-coolGray'>
+			<FormNavigation />
+		</main>
+	);
 };
 
 export default App;
