@@ -15,10 +15,11 @@ export interface StepTitleProps {
 export interface FormControlsProps {
 	submitFormHandler: (event: React.FormEvent) => void;
 	goBackHandler?: () => void;
+	confirm?: boolean;
 }
 
 export interface ButtonProps {
 	btnText: string;
 	type: 'submit' | 'button';
-	onClick: ((event: React.FormEvent) => void) | (() => void )
+	onClick: ((event: React.FormEvent) => void) | (() => void);
 }

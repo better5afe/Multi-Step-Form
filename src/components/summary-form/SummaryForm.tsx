@@ -22,6 +22,7 @@ const SummaryForm = () => {
 			<FormControls
 				submitFormHandler={submitSummaryHandler}
 				goBackHandler={goBackHandler}
+				confirm={true}
 			/>
 		</form>
 	);
