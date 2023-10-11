@@ -13,7 +13,7 @@ const PlanForm = () => {
 
 	return (
 		<form className='form'>
-			<div className='form__input bg-red-100'>
+			<div className='form__input'>
 				<StepTitle
 					stepTitle='Select your plan'
 					stepDesc='You have the option of monthly or yearly billing.'

@@ -10,6 +10,7 @@ export interface NavLinkProps {
 export interface StepTitleProps {
 	stepTitle: string;
 	stepDesc: string;
+	addDesc?: string;
 }
 
 export interface FormControlsProps {

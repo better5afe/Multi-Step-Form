@@ -13,7 +13,7 @@ const AddOnsForm = () => {
 
 	return (
 		<form className='form'>
-			<div className='form__input bg-red-100'>
+			<div className='form__input'>
 				<StepTitle
 					stepTitle='Pick add-ons'
 					stepDesc='Add-ons help enhance your gaming experience.'

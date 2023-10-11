@@ -13,7 +13,7 @@ const SummaryForm = () => {
 
 	return (
 		<form className='form'>
-			<div className='form__input bg-red-100'>
+			<div className='form__input'>
 				<StepTitle
 					stepTitle='Finishing up'
 					stepDesc='Double check everything looks OK before confirming.'

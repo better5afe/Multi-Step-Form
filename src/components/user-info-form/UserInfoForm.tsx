@@ -10,7 +10,7 @@ const UserInfoForm = () => {
 
 	return (
 		<form className='form'>
-			<div className='form__input bg-alabaster'>
+			<div className='form__input'>
 				<StepTitle
 					stepTitle='Personal info'
 					stepDesc='Please provide your name, email address and phone number.'
