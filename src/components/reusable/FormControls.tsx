@@ -13,7 +13,7 @@ const FormControls: React.FC<FormControlsProps> = ({
 	}
 
 	return (
-		<div className='fixed right-0 bottom-0 left-0 flex justify-between p-3 bg-alabaster large:static'>
+		<div className='fixed right-0 bottom-0 left-0 flex justify-between p-3 bg-alabaster large:absolute large:bottom-[40px] large:p-0'>
 			{goBackHandler && (
 				<Button btnText='Go Back' type='button' onClick={goBackHandler} />
 			)}

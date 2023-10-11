@@ -2,7 +2,7 @@ import { ButtonProps } from '../../models/types';
 
 const Button: React.FC<ButtonProps> = ({ btnText, type, onClick }) => {
 	let btnClass =
-		'bg-marineBlue text-white hover:bg-purplishBlue focus:bg-purplishBlue';
+		'ms-auto bg-marineBlue text-white hover:bg-purplishBlue focus:bg-purplishBlue';
 
 	if (type === 'button') {
 		btnClass = 'hover:text-marineBlue focus:text-marineBlue';

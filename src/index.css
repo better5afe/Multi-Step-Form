@@ -21,6 +21,28 @@ body {
 	border-color: hsl(206, 94%, 87%);
 }
 
+.form {
+	position: relative;
+	height: calc(100vh - 172px);
+}
+
+.form__input {
+	position: absolute;
+	width: 95vw;
+	top: -80px;
+	left: 50%;
+	padding: 2.5em 2em;
+	transform: translateX(-50%);
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 6px -1px hsl(231, 11%, 63%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
 @media (min-width: 992px) {
 	body {
 		min-height: 100vh;
@@ -31,5 +53,19 @@ body {
 
 	.nav {
 		background-image: url('./assets/icons/bg-sidebar-desktop.svg');
+	}
+
+	.form {
+		position: relative;
+		height: 100%;
+	}
+
+	.form__input {
+		position: static;
+		width: auto;
+		padding: 0;
+		transform: translateX(0);
+		border-radius: 0;
+		box-shadow: none;
 	}
 }

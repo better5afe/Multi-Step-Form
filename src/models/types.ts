@@ -23,3 +23,12 @@ export interface ButtonProps {
 	type: 'submit' | 'button';
 	onClick: ((event: React.FormEvent) => void) | (() => void);
 }
+
+// User info form
+
+export interface FormInputProps {
+	inputTitle: string;
+	inputPlaceholder: string;
+	inputType: 'number' | 'text';
+	id: string;
+}

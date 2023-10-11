@@ -8,9 +8,9 @@ const App = () => {
 	return (
 		<main className='font-sans text-sm large:text-base text-coolGray large:flex large:justify-between large:w-[950px] large:p-5 large:bg-alabaster large:rounded-xl large:shadow-lg large:shadow-lightGray'>
 			<FormNavigation />
-			<div className='large:w-[600px]'>
-				{/* <UserInfoForm /> */}
-				<PlanForm />
+			<div className='large:w-[600px] large:px-12'>
+				<UserInfoForm />
+				{/* <PlanForm /> */}
 				{/* <AddOnsForm /> */}
 				{/* <SummaryForm /> */}
 			</div>
