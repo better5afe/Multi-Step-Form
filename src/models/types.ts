@@ -21,6 +21,7 @@ export interface ButtonProps {
 export interface CardProps {
 	className: string;
 	isActive: boolean;
+	onClick: () => void;
 	children: React.ReactNode;
 }
 
@@ -112,6 +113,13 @@ export interface UserAction {
 	value: string;
 }
 
+// selected services
+
+interface SelectedServicesState {
+	selectedPlan: string;
+	selectedPlanID: string;
+}
+
 // redux
 
 export interface AppStateObject {
@@ -124,4 +132,5 @@ export interface AppStateObject {
 		phone: Input;
 	};
 	userData: UserState;
+	selectedServices: SelectedServicesState;
 }

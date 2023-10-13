@@ -10,10 +10,16 @@ const AddOnCard: React.FC<AddOnCardProps> = ({
 	planType,
 }) => {
 	let dummyIsActive = true;
+
+	const selectAddOnHandler = () => {
+		console.log(id);
+	};
+
 	return (
 		<Card
 			className='addon-card flex justify-between items-center p-3 mb-3'
 			isActive={dummyIsActive}
+			onClick={selectAddOnHandler}
 		>
 			<div className='flex items-center'>
 				<Checkbox isActive={dummyIsActive} />

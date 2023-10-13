@@ -6,7 +6,7 @@ import PlanSwitcher from './PlanSwitcher';
 
 const PlanForm = () => {
 	const submitPlanHandler = (event: React.FormEvent) => {
-		event.preventDefault();
+		event.preventDefault()
 		console.log('Plan has been submitted');
 	};
 
@@ -27,18 +27,21 @@ const PlanForm = () => {
 						planName='Arcade'
 						planPrice={9}
 						planType='mo'
+					
 					/>
 					<PlanCard
 						id={Plans.ADVANCED}
 						planName='Advanced'
 						planPrice={12}
 						planType='mo'
+					
 					/>
 					<PlanCard
 						id={Plans.PRO}
 						planName='Pro'
 						planPrice={15}
 						planType='mo'
+					
 					/>
 				</div>
 				<PlanSwitcher activePlan={PlanTypes.MONTHLY} />

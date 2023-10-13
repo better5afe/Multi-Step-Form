@@ -1,5 +1,8 @@
-import Card from '../reusable/Card';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppStateObject } from '../../models/types';
+import { selectPlan } from '../../store/slices/selectedServicesSlice';
 import { PlanCardProps, PlanTypes } from '../../models/types';
+import Card from '../reusable/Card';
 
 const PlanCard: React.FC<PlanCardProps> = ({
 	id,
@@ -7,6 +10,21 @@ const PlanCard: React.FC<PlanCardProps> = ({
 	planPrice,
 	planType,
 }) => {
+	const selectedPlanID = useSelector(
+		(state: AppStateObject) => state.selectedServices.selectedPlanID
+	);
+
+	const dispatch = useDispatch();
+
+	const selectPlanHandler = () => {
+		dispatch(
+			selectPlan({
+				planName: planName,
+				planID: id,
+			})
+		);
+	};
+
 	let icon = (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
@@ -66,7 +84,8 @@ const PlanCard: React.FC<PlanCardProps> = ({
 	return (
 		<Card
 			className='flex items-center mb-3 large:flex-col large:items-start large:w-[150px] large:mb-0'
-			isActive={false}
+			isActive={selectedPlanID === id}
+			onClick={selectPlanHandler}
 		>
 			{icon}
 			<div className='ms-4 large:ms-0 large:mt-10'>
