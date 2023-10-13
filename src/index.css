@@ -65,6 +65,10 @@ input::-webkit-inner-spin-button {
 	transform: translateX(18px);
 }
 
+.plan-summary {
+	border-bottom: 1px solid hsl(229, 24%, 87%);
+}
+
 @media (min-width: 992px) {
 	body {
 		min-height: 100vh;

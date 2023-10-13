@@ -1,4 +1,6 @@
 import StepTitle from '../reusable/StepTitle';
+import ServicesSummary from './ServicesSummary';
+import TotalSummary from './TotalSummary';
 import FormControls from '../reusable/FormControls';
 
 const SummaryForm = () => {
@@ -18,6 +20,10 @@ const SummaryForm = () => {
 					stepTitle='Finishing up'
 					stepDesc='Double check everything looks OK before confirming.'
 				/>
+				<div>
+					<ServicesSummary />
+					<TotalSummary />
+				</div>
 			</div>
 			<FormControls
 				submitFormHandler={submitSummaryHandler}
