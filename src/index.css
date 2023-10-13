@@ -44,6 +44,11 @@ input::-webkit-inner-spin-button {
 	margin: 0;
 }
 
+.card--active {
+	background: hsl(217, 100%, 97%);
+	border: 1px solid hsl(213, 96%, 18%);
+}
+
 @media (min-width: 992px) {
 	body {
 		min-height: 100vh;

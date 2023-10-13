@@ -25,6 +25,12 @@ export interface ButtonProps {
 	onClick: ((event: React.FormEvent) => void) | (() => void);
 }
 
+export interface CardProps {
+	className: string;
+	isActive: boolean;
+	children: React.ReactNode;
+}
+
 // User info form
 
 export interface FormInputProps {
@@ -32,4 +38,24 @@ export interface FormInputProps {
 	inputPlaceholder: string;
 	inputType: 'number' | 'text';
 	id: string;
+}
+
+// Plan form
+
+export enum Plans {
+	ARCADE = 'arcade',
+	ADVANCED = 'advanced',
+	PRO = 'pro',
+}
+
+export enum PlanTypes {
+	MONTHLY = 'mo',
+	YEARLY = 'yo',
+}
+
+export interface PlanCardProps {
+	id: string;
+	planName: string;
+	planPrice: number;
+	planType: string;
 }

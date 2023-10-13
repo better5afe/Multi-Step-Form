@@ -1,5 +1,7 @@
 import StepTitle from '../reusable/StepTitle';
 import FormControls from '../reusable/FormControls';
+import PlanCard from './PlanCard';
+import { Plans } from '../../models/types';
 
 const PlanForm = () => {
 	const submitPlanHandler = (event: React.FormEvent) => {
@@ -18,6 +20,26 @@ const PlanForm = () => {
 					stepTitle='Select your plan'
 					stepDesc='You have the option of monthly or yearly billing.'
 				/>
+				<div className='my-5 large:flex justify-between'>
+					<PlanCard
+						id={Plans.ARCADE}
+						planName='Arcade'
+						planPrice={9}
+						planType='mo'
+					/>
+					<PlanCard
+						id={Plans.ADVANCED}
+						planName='Advanced'
+						planPrice={12}
+						planType='mo'
+					/>
+					<PlanCard
+						id={Plans.PRO}
+						planName='Pro'
+						planPrice={15}
+						planType='mo'
+					/>
+				</div>
 			</div>
 			<FormControls
 				submitFormHandler={submitPlanHandler}
