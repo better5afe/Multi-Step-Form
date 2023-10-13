@@ -19,7 +19,7 @@ const AddOnsForm = () => {
 					stepTitle='Pick add-ons'
 					stepDesc='Add-ons help enhance your gaming experience.'
 				/>
-				<div>
+				<div className='my-5'>
 					<AddOnCard
 						id='service'
 						addOnName='Online Service'
