@@ -38,10 +38,11 @@ export interface NavLinkProps {
 // User info form
 
 export interface FormInputProps {
+	id: string;
 	inputTitle: string;
 	inputPlaceholder: string;
 	inputType: 'number' | 'text';
-	id: string;
+	inputValidity: Input;
 }
 
 // Plan form
@@ -76,4 +77,34 @@ export interface AddOnCardProps {
 	addOnDesc: string;
 	addOnPrice: string;
 	planType: string;
+}
+
+// redux - user slice
+
+interface Input {
+	isValid: boolean;
+	errorMessage: string;
+}
+
+export interface UserState {
+	name: Input;
+	email: Input;
+	phone: Input;
+}
+
+export interface UserAction {
+	property: keyof UserState;
+	isValid: boolean;
+	errorMessage: string;
+}
+
+// redux
+
+export interface AppStateObject {
+	step: number;
+	user: {
+		name: Input;
+		email: Input;
+		phone: Input;
+	};
 }

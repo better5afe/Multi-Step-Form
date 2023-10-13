@@ -1,12 +1,10 @@
+import { forwardRef } from 'react';
 import { FormInputProps } from '../../models/types';
 
-const FormInput: React.FC<FormInputProps> = ({
-	id,
-	inputTitle,
-	inputPlaceholder,
-	inputType,
-}) => {
-	let isError = false;
+const FormInput: React.ForwardRefRenderFunction<
+	HTMLInputElement,
+	FormInputProps
+> = ({ id, inputTitle, inputPlaceholder, inputType, inputValidity }, ref) => {
 
 	return (
 		<>
@@ -14,14 +12,15 @@ const FormInput: React.FC<FormInputProps> = ({
 				<label htmlFor={id} className=' text-marineBlue'>
 					{inputTitle}
 				</label>
-				{isError && (
-					<p className='text-strawberryRed'>This field is required</p>
+				{!inputValidity.isValid && (
+					<p className='text-strawberryRed'>{inputValidity.errorMessage}</p>
 				)}
 			</div>
 			<input
+				ref={ref}
 				id={id}
 				className={`${
-					isError && 'border-strawberryRed'
+					!inputValidity.isValid && 'border-strawberryRed bg-transparent'
 				} w-full mb-4 large:mb-5 px-5 py-2 bg-transparent border border-lightGray outline-none rounded-md text-marineBlue placeholder:text-coolGray focus:border-purplishBlue`}
 				type={inputType}
 				placeholder={inputPlaceholder}
@@ -30,4 +29,4 @@ const FormInput: React.FC<FormInputProps> = ({
 	);
 };
 
-export default FormInput;
+export default forwardRef(FormInput);
