@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = 1;
+const initialState = {
+	step: 1,
+};
 
 const stepSlice = createSlice({
 	name: 'step',
 	initialState,
 	reducers: {
 		setStep: (state, action) => {
-			return action.payload;
+			state.step = action.payload;
 		},
 	},
 });

@@ -1,16 +1,20 @@
 import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStateObject } from '../../models/types';
-import { setInputValidity } from '../../store/slices/userSlice';
+import { setInputValidity } from '../../store/slices/formSlice';
+import { setUserData } from '../../store/slices/userDataSlice';
 import { setStep } from '../../store/slices/stepSlice';
 import StepTitle from '../reusable/StepTitle';
 import FormInput from './FormInput';
 import FormControls from '../reusable/FormControls';
 import { checkForm } from '../../utils/checkForm';
-import { UserState } from '../../models/types';
+import { FormState, UserState } from '../../models/types';
 
 const UserInfoForm = () => {
-	const user = useSelector((state: AppStateObject) => state.user);
+	const form = useSelector((state: AppStateObject) => state.form);
+	const userData = useSelector((state: AppStateObject) => state.userData);
+
+	console.log(userData);
 
 	const dispatch = useDispatch();
 
@@ -30,7 +34,7 @@ const UserInfoForm = () => {
 			formValidity.forEach((input) => {
 				dispatch(
 					setInputValidity({
-						property: input.inputName as keyof UserState,
+						property: input.inputName as keyof FormState,
 						isValid: input.isValid,
 						errorMessage: input.errorMessage,
 					})
@@ -38,6 +42,21 @@ const UserInfoForm = () => {
 			});
 
 			if (formValidity.every((input) => input.isValid)) {
+				const refs = [
+					{ property: 'name', value: nameRef.current.value },
+					{ property: 'email', value: emailRef.current.value },
+					{ property: 'phone', value: phoneRef.current.value },
+				];
+
+				refs.forEach((ref) =>
+					dispatch(
+						setUserData({
+							property: ref.property as keyof UserState,
+							value: ref.value,
+						})
+					)
+				);
+
 				dispatch(setStep(2));
 			} else {
 				return;
@@ -55,27 +74,30 @@ const UserInfoForm = () => {
 				<div className='mt-5'>
 					<FormInput
 						ref={nameRef}
+						value={userData.name}
 						id='name'
 						inputTitle='Name'
 						inputPlaceholder='e.g. Stephen King'
 						inputType='text'
-						inputValidity={user.name}
+						inputValidity={form.name}
 					/>
 					<FormInput
 						ref={emailRef}
+						value={userData.email}
 						id='email'
 						inputTitle='Email Address'
 						inputPlaceholder='e.g. stephenking@lorem.com'
 						inputType='text'
-						inputValidity={user.email}
+						inputValidity={form.email}
 					/>
 					<FormInput
 						ref={phoneRef}
+						value={userData.phone}
 						id='phone'
 						inputTitle='Phone Number'
 						inputPlaceholder='e.g. +1 234 567 890'
 						inputType='number'
-						inputValidity={user.phone}
+						inputValidity={form.phone}
 					/>
 				</div>
 			</div>

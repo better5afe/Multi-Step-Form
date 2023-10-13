@@ -9,7 +9,7 @@ import SuccessPage from './components/success-page/SuccessPage';
 
 const App = () => {
 	const step = useSelector((state: AppStateObject) => {
-		return state.step;
+		return state.step.step;
 	});
 
 	let formStep;

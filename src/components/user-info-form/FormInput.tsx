@@ -4,8 +4,10 @@ import { FormInputProps } from '../../models/types';
 const FormInput: React.ForwardRefRenderFunction<
 	HTMLInputElement,
 	FormInputProps
-> = ({ id, inputTitle, inputPlaceholder, inputType, inputValidity }, ref) => {
-
+> = (
+	{ id, value, inputTitle, inputPlaceholder, inputType, inputValidity },
+	ref
+) => {
 	return (
 		<>
 			<div className='flex justify-between mb-2 text-xs font-medium large:text-sm'>
@@ -18,6 +20,7 @@ const FormInput: React.ForwardRefRenderFunction<
 			</div>
 			<input
 				ref={ref}
+				value={value}
 				id={id}
 				className={`${
 					!inputValidity.isValid && 'border-strawberryRed bg-transparent'

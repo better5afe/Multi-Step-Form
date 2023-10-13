@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { UserState, UserAction } from '../../models/types';
+import { FormState, FormAction } from '../../models/types';
 
-const initialState: UserState = {
+const initialState: FormState = {
 	name: {
 		isValid: true,
 		errorMessage: '',
@@ -16,16 +16,16 @@ const initialState: UserState = {
 	},
 };
 
-const userSlice = createSlice({
-	name: 'user',
+const formSlice = createSlice({
+	name: 'form',
 	initialState,
 	reducers: {
-		setInputValidity: (state, action: PayloadAction<UserAction>) => {
+		setInputValidity: (state, action: PayloadAction<FormAction>) => {
 			state[action.payload.property].isValid = action.payload.isValid;
 			state[action.payload.property].errorMessage = action.payload.errorMessage;
 		},
 	},
 });
 
-export const { setInputValidity } = userSlice.actions;
-export default userSlice.reducer;
+export const { setInputValidity } = formSlice.actions;
+export default formSlice.reducer;
