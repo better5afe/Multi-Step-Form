@@ -49,6 +49,22 @@ input::-webkit-inner-spin-button {
 	border: 1px solid hsl(213, 96%, 18%);
 }
 
+.switcher::before {
+	position: absolute;
+	top: 2.5px;
+	left: 3.5px;
+	height: 15px;
+	width: 15px;
+	background: hsl(0, 0%, 100%);
+	border-radius: 50%;
+	transition: transform 0.3s;
+	content: '';
+}
+
+.switcher--active::before {
+	transform: translateX(18px);
+}
+
 @media (min-width: 992px) {
 	body {
 		min-height: 100vh;

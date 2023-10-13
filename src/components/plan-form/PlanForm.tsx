@@ -1,7 +1,8 @@
+import { Plans, PlanTypes } from '../../models/types';
 import StepTitle from '../reusable/StepTitle';
 import FormControls from '../reusable/FormControls';
 import PlanCard from './PlanCard';
-import { Plans } from '../../models/types';
+import PlanSwitcher from './PlanSwitcher';
 
 const PlanForm = () => {
 	const submitPlanHandler = (event: React.FormEvent) => {
@@ -40,6 +41,7 @@ const PlanForm = () => {
 						planType='mo'
 					/>
 				</div>
+				<PlanSwitcher activePlan={PlanTypes.MONTHLY} />
 			</div>
 			<FormControls
 				submitFormHandler={submitPlanHandler}

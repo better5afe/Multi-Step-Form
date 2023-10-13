@@ -59,3 +59,7 @@ export interface PlanCardProps {
 	planPrice: number;
 	planType: string;
 }
+
+export interface PlanSwitcherProps {
+	activePlan: PlanTypes.MONTHLY | PlanTypes.YEARLY;
+}
