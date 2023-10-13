@@ -32,7 +32,7 @@ body {
 	top: -80px;
 	left: 50%;
 	padding: 2.5em 2em;
-	background: hsl(231, 100%, 99%);
+	background: hsl(0, 0%, 100%);
 	transform: translateX(-50%);
 	border-radius: 0.5rem;
 	box-shadow: 0 4px 6px -1px hsl(231, 11%, 63%);

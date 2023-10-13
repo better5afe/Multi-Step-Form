@@ -11,7 +11,7 @@ let dummySelectedAddOns = [
 
 const ServicesSummary = () => {
 	return (
-		<div className='p-5 my-5 bg-alabaster rounded-md'>
+		<div className='p-5 mt-5 mb-3 bg-alabaster rounded-md'>
 			<div className='plan-summary flex justify-between items-center pb-3'>
 				<div>
 					<p className='mb-0 text-[1rem] text-marineBlue font-medium large:text-[1.2rem]'>
