@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const storedStep = localStorage.getItem('step');
+
 const initialState = {
-	step: 1,
+	step: storedStep ? +storedStep : 1,
 };
 
 const stepSlice = createSlice({
@@ -10,6 +12,8 @@ const stepSlice = createSlice({
 	reducers: {
 		setStep: (state, action) => {
 			state.step = action.payload;
+
+			localStorage.setItem('step', action.payload);
 		},
 	},
 });
