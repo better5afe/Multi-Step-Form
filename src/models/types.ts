@@ -1,10 +1,3 @@
-// Navigation
-
-export interface NavLinkProps {
-	stepNumber: number;
-	stepTitle: string;
-}
-
 // reusable
 
 export interface StepTitleProps {
@@ -29,6 +22,17 @@ export interface CardProps {
 	className: string;
 	isActive: boolean;
 	children: React.ReactNode;
+}
+
+export interface CheckboxProps {
+	isActive: boolean;
+}
+
+// Navigation
+
+export interface NavLinkProps {
+	stepNumber: number;
+	stepTitle: string;
 }
 
 // User info form
@@ -62,4 +66,14 @@ export interface PlanCardProps {
 
 export interface PlanSwitcherProps {
 	activePlan: PlanTypes.MONTHLY | PlanTypes.YEARLY;
+}
+
+// Addons form
+
+export interface AddOnCardProps {
+	id: string;
+	addOnName: string;
+	addOnDesc: string;
+	addOnPrice: string;
+	planType: string;
 }

@@ -18,8 +18,8 @@ const App = () => {
 			<FormNavigation />
 			<div className='large:w-[600px] large:px-12'>
 				{/* <UserInfoForm /> */}
-				<PlanForm />
-				{/* <AddOnsForm /> */}
+				{/* <PlanForm /> */}
+				<AddOnsForm />
 				{/* <SummaryForm /> */}
 				{/* <SuccessPage /> */}
 			</div>
