@@ -2,21 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppStateObject } from '../../models/types';
 import { setStep } from '../../store/slices/stepSlice';
 
-let dummySelectedAddOns = [
-	{
-		name: 'Online Service',
-		price: 12,
-	},
-	{
-		name: 'Customizable Profile',
-		price: 15,
-	},
-];
-
 const ServicesSummary = () => {
-	const { selectedPlan } = useSelector((state: AppStateObject) => {
+	const { selectedPlan, addOns } = useSelector((state: AppStateObject) => {
 		return {
 			selectedPlan: state.selectedServices.selectedPlan,
+			addOns: state.selectedServices.selectedAddOns,
 		};
 	});
 
@@ -42,10 +32,13 @@ const ServicesSummary = () => {
 				<p className='text-marineBlue font-bold'>$9/mo</p>
 			</div>
 			<ul className='mt-3 text-sm'>
-				{dummySelectedAddOns.map((addOn, index) => (
-					<li className='flex justify-between items-center mb-3' key={index}>
-						<p>{addOn.name}</p>
-						<p className='text-marineBlue font-medium'>+${addOn.price}/mo</p>
+				{addOns.map((addOn) => (
+					<li
+						className='flex justify-between items-center mb-3'
+						key={addOn.addOnID}
+					>
+						<p>{addOn.addOnName}</p>
+						<p className='text-marineBlue font-medium'>+$12/mo</p>
 					</li>
 				))}
 			</ul>

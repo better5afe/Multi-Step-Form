@@ -1,9 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SelectedServicesState } from '../../models/types';
+import { SelectedServicesState, PlanTypes } from '../../models/types';
 
 const storedData = {
 	storedPlan: localStorage.getItem('plan'),
 	storedAddOns: localStorage.getItem('addons'),
+	storedPricing: localStorage.getItem('pricing'),
+};
+
+const monthlyPrices = {
+	advanced: 9,
+	arcade: 12,
+	pro: 15,
+	service: 1,
+	storage: 2,
+	profile: 2,
+};
+
+const yearlyPrices = {
+	advanced: 90,
+	arcade: 120,
+	pro: 150,
+	service: 10,
+	storage: 20,
+	profile: 20,
 };
 
 const initialState: SelectedServicesState = {
@@ -16,6 +35,12 @@ const initialState: SelectedServicesState = {
 	selectedAddOns: storedData.storedAddOns
 		? JSON.parse(storedData.storedAddOns)
 		: [],
+	selectedPrices: storedData.storedPricing
+		? JSON.parse(storedData.storedPricing).pricing
+		: monthlyPrices,
+	selectedPlanType: storedData.storedPricing
+	? JSON.parse(storedData.storedPricing).planType
+	: 'mo',
 };
 
 const selectedServicesSlice = createSlice({
@@ -54,8 +79,37 @@ const selectedServicesSlice = createSlice({
 
 			localStorage.setItem('addons', JSON.stringify(state.selectedAddOns));
 		},
+		selectMonthlyPricing: (state) => {
+			state.selectedPrices = monthlyPrices;
+			state.selectedPlanType = 'mo';
+
+			localStorage.setItem(
+				'pricing',
+				JSON.stringify({
+					pricing: monthlyPrices,
+					planType: 'mo',
+				})
+			);
+		},
+		selectYearlyPricing: (state) => {
+			state.selectedPrices = yearlyPrices;
+			state.selectedPlanType = 'yr';
+
+			localStorage.setItem(
+				'pricing',
+				JSON.stringify({
+					pricing: yearlyPrices,
+					planType: 'yr',
+				})
+			);
+		},
 	},
 });
 
-export const { selectPlan, selectAddOns } = selectedServicesSlice.actions;
+export const {
+	selectPlan,
+	selectAddOns,
+	selectMonthlyPricing,
+	selectYearlyPricing,
+} = selectedServicesSlice.actions;
 export default selectedServicesSlice.reducer;

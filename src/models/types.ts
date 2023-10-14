@@ -120,10 +120,21 @@ interface SelectedAddOn {
 	addOnName: string;
 }
 
+interface Prices {
+	advanced: number;
+	arcade: number;
+	pro: number;
+	service: number;
+	storage: number;
+	profile: number;
+}
+
 export interface SelectedServicesState {
 	selectedPlan: string;
 	selectedPlanID: string;
 	selectedAddOns: SelectedAddOn[];
+	selectedPrices: Prices;
+	selectedPlanType: 'mo' | 'yr';
 }
 
 // redux
