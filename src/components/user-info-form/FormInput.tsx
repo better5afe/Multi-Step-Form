@@ -5,7 +5,7 @@ const FormInput: React.ForwardRefRenderFunction<
 	HTMLInputElement,
 	FormInputProps
 > = (
-	{ id, value, inputTitle, inputPlaceholder, inputType, inputValidity },
+	{ id, defaultValue, inputTitle, inputPlaceholder, inputType, inputValidity },
 	ref
 ) => {
 	return (
@@ -20,7 +20,7 @@ const FormInput: React.ForwardRefRenderFunction<
 			</div>
 			<input
 				ref={ref}
-				value={value}
+				defaultValue={defaultValue}
 				id={id}
 				className={`${
 					!inputValidity.isValid && 'border-strawberryRed bg-transparent'

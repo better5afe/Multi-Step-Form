@@ -39,8 +39,8 @@ export interface NavLinkProps {
 // User info form
 
 export interface FormInputProps {
-	value: string;
 	id: string;
+	defaultValue: string;
 	inputTitle: string;
 	inputPlaceholder: string;
 	inputType: 'number' | 'text';

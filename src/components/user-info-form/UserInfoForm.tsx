@@ -74,7 +74,7 @@ const UserInfoForm = () => {
 				<div className='mt-5'>
 					<FormInput
 						ref={nameRef}
-						value={userData.name}
+						defaultValue={userData.name}
 						id='name'
 						inputTitle='Name'
 						inputPlaceholder='e.g. Stephen King'
@@ -83,7 +83,7 @@ const UserInfoForm = () => {
 					/>
 					<FormInput
 						ref={emailRef}
-						value={userData.email}
+						defaultValue={userData.email}
 						id='email'
 						inputTitle='Email Address'
 						inputPlaceholder='e.g. stephenking@lorem.com'
@@ -92,7 +92,7 @@ const UserInfoForm = () => {
 					/>
 					<FormInput
 						ref={phoneRef}
-						value={userData.phone}
+						defaultValue={userData.phone}
 						id='phone'
 						inputTitle='Phone Number'
 						inputPlaceholder='e.g. +1 234 567 890'

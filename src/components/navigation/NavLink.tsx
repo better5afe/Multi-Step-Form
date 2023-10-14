@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setStep } from '../../store/slices/stepSlice';
-import { NavLinkProps } from '../../models/types';
-
-// class to be added on active - active-step
+import { NavLinkProps, AppStateObject } from '../../models/types';
 
 const NavLink: React.FC<NavLinkProps> = ({ stepNumber, stepTitle }) => {
+	const currentStep = useSelector((state: AppStateObject) => state.step.step);
+
 	const dispatch = useDispatch();
 
 	const selectStepHandler = () => {
@@ -18,7 +18,9 @@ const NavLink: React.FC<NavLinkProps> = ({ stepNumber, stepTitle }) => {
 		>
 			<div
 				tabIndex={0}
-				className='nav-link__step flex justify-center items-center h-[35px] w-[35px] border border-white rounded-full outline-none text-white font-medium transition-colors duration-300'
+				className={`nav-link__step ${
+					currentStep === stepNumber && 'active-step'
+				} flex justify-center items-center h-[35px] w-[35px] border border-white rounded-full outline-none text-white font-medium transition-colors duration-300`}
 			>
 				{stepNumber}
 			</div>
