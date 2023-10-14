@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAddOns } from '../../store/slices/selectedServicesSlice';
-import { AddOnCardProps, AppStateObject } from '../../models/types';
+import { AddOnCardProps, AppStateObject, Prices } from '../../models/types';
 import Card from '../reusable/Card';
 import Checkbox from '../reusable/Checkbox';
 
@@ -8,14 +8,18 @@ const AddOnCard: React.FC<AddOnCardProps> = ({
 	id,
 	addOnName,
 	addOnDesc,
-	addOnPrice,
-	planType,
 }) => {
-	let dummyIsActive = true;
-
-	const addOns = useSelector(
-		(state: AppStateObject) => state.selectedServices.selectedAddOns
+	const { addOns, selectedPrices, selectedPlanType } = useSelector(
+		(state: AppStateObject) => {
+			return {
+				addOns: state.selectedServices.selectedAddOns,
+				selectedPrices: state.selectedServices.selectedPrices,
+				selectedPlanType: state.selectedServices.selectedPlanType,
+			};
+		}
 	);
+
+	const addOnPrice = selectedPrices[id as keyof Prices];
 
 	const index = addOns.findIndex((addOn) => addOn.addOnID === id);
 
@@ -44,7 +48,7 @@ const AddOnCard: React.FC<AddOnCardProps> = ({
 				</div>
 			</div>
 			<p className='text-sm text-purplishBlue'>
-				+${addOnPrice}/{planType}
+				+${addOnPrice}/{selectedPlanType}
 			</p>
 		</Card>
 	);

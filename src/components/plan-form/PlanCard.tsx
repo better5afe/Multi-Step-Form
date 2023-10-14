@@ -1,18 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { AppStateObject } from '../../models/types';
 import { selectPlan } from '../../store/slices/selectedServicesSlice';
-import { PlanCardProps, PlanTypes } from '../../models/types';
+import { PlanCardProps, Prices } from '../../models/types';
 import Card from '../reusable/Card';
 
-const PlanCard: React.FC<PlanCardProps> = ({
-	id,
-	planName,
-	planPrice,
-	planType,
-}) => {
-	const selectedPlanID = useSelector(
-		(state: AppStateObject) => state.selectedServices.selectedPlanID
+const PlanCard: React.FC<PlanCardProps> = ({ id, planName }) => {
+	const { selectedPlanID, selectedPrices, selectedPlanType } = useSelector(
+		(state: AppStateObject) => {
+			return {
+				selectedPlanID: state.selectedServices.selectedPlanID,
+				selectedPrices: state.selectedServices.selectedPrices,
+				selectedPlanType: state.selectedServices.selectedPlanType,
+			};
+		}
 	);
+
+	const planPrice = selectedPrices[id as keyof Prices];
 
 	const dispatch = useDispatch();
 
@@ -91,9 +94,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
 			<div className='ms-4 large:ms-0 large:mt-10'>
 				<p className='text-marineBlue font-bold'>{planName}</p>
 				<p className='my-1 text-xs large:text-sm'>
-					${planPrice}/{planType}
+					${planPrice}/{selectedPlanType}
 				</p>
-				{planType === PlanTypes.YEARLY && (
+				{selectedPlanType === 'yr' && (
 					<p className='text-xs text-marineBlue large:text-sm'>2 months free</p>
 				)}
 			</div>

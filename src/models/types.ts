@@ -63,8 +63,6 @@ export enum PlanTypes {
 export interface PlanCardProps {
 	id: string;
 	planName: string;
-	planPrice: number;
-	planType: string;
 }
 
 export interface PlanSwitcherProps {
@@ -77,8 +75,6 @@ export interface AddOnCardProps {
 	id: string;
 	addOnName: string;
 	addOnDesc: string;
-	addOnPrice: string;
-	planType: string;
 }
 
 // redux - form slice
@@ -120,7 +116,7 @@ interface SelectedAddOn {
 	addOnName: string;
 }
 
-interface Prices {
+export interface Prices {
 	advanced: number;
 	arcade: number;
 	pro: number;

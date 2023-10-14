@@ -25,22 +25,16 @@ const PlanForm = () => {
 					<PlanCard
 						id={Plans.ARCADE}
 						planName='Arcade'
-						planPrice={9}
-						planType='mo'
 					
 					/>
 					<PlanCard
 						id={Plans.ADVANCED}
 						planName='Advanced'
-						planPrice={12}
-						planType='mo'
 					
 					/>
 					<PlanCard
 						id={Plans.PRO}
 						planName='Pro'
-						planPrice={15}
-						planType='mo'
 					
 					/>
 				</div>
