@@ -115,9 +115,15 @@ export interface UserAction {
 
 // selected services
 
-interface SelectedServicesState {
+interface SelectedAddOn {
+	addOnID: string;
+	addOnName: string;
+}
+
+export interface SelectedServicesState {
 	selectedPlan: string;
 	selectedPlanID: string;
+	selectedAddOns: SelectedAddOn[];
 }
 
 // redux
