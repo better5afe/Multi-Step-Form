@@ -61,7 +61,6 @@ const selectedServicesSlice = createSlice({
 		},
 		selectAddOns: (state, action) => {
 			const addonID = action.payload.addOnID;
-			console.log(action.payload);
 
 			const index = state.selectedAddOns.findIndex(
 				(addOn) => addOn.addOnID === addonID
