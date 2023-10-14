@@ -26,9 +26,13 @@ const TotalSummary = () => {
 		(addOn) => selectedPrices[addOn.addOnID as keyof Prices]
 	);
 
-	let summary = planPrice + addOnsPrice.reduce((a, b) => a + b);
+	let summary;
 
-	console.log(summary);
+	if (selectedAddOns.length > 0) {
+		summary = planPrice + addOnsPrice.reduce((a, b) => a + b);
+	} else {
+		summary = planPrice;
+	}
 
 	return (
 		<div className='flex justify-between items-center px-5'>

@@ -1,16 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { setStep } from '../../store/slices/stepSlice';
 import StepTitle from '../reusable/StepTitle';
 import ServicesSummary from './ServicesSummary';
 import TotalSummary from './TotalSummary';
 import FormControls from '../reusable/FormControls';
 
 const SummaryForm = () => {
+	const dispatch = useDispatch();
+
 	const submitSummaryHandler = (event: React.FormEvent) => {
 		event.preventDefault();
-		console.log('Summary has been submitted');
+		dispatch(setStep(5));
 	};
 
 	const goBackHandler = () => {
-		console.log('Go back');
+		dispatch(setStep(3));
 	};
 
 	return (

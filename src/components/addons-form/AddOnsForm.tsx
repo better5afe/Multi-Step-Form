@@ -1,15 +1,19 @@
+import { useDispatch } from 'react-redux';
+import { setStep } from '../../store/slices/stepSlice';
 import StepTitle from '../reusable/StepTitle';
 import FormControls from '../reusable/FormControls';
 import AddOnCard from './AddOnCard';
 
 const AddOnsForm = () => {
+	const dispatch = useDispatch();
+
 	const submitAddOnsHandler = (event: React.FormEvent) => {
 		event.preventDefault();
-		console.log('Add Ons have been submitted');
+		dispatch(setStep(4));
 	};
 
 	const goBackHandler = () => {
-		console.log('Go Back');
+		dispatch(setStep(2));
 	};
 
 	return (

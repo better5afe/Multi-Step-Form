@@ -14,8 +14,6 @@ const UserInfoForm = () => {
 	const form = useSelector((state: AppStateObject) => state.form);
 	const userData = useSelector((state: AppStateObject) => state.userData);
 
-	console.log(userData);
-
 	const dispatch = useDispatch();
 
 	const nameRef = useRef<HTMLInputElement | null>(null);
@@ -24,6 +22,7 @@ const UserInfoForm = () => {
 
 	const submitInfoHandler = (event: React.FormEvent) => {
 		event.preventDefault();
+		
 		if (nameRef.current && emailRef.current && phoneRef.current) {
 			const nameValidity = checkForm(nameRef.current.value, 'name');
 			const emailValidity = checkForm(emailRef.current.value, 'email');

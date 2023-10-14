@@ -1,21 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setStep } from '../../store/slices/stepSlice';
+import { useSelector } from 'react-redux';
 import { NavLinkProps, AppStateObject } from '../../models/types';
 
 const NavLink: React.FC<NavLinkProps> = ({ stepNumber, stepTitle }) => {
 	const currentStep = useSelector((state: AppStateObject) => state.step.step);
 
-	const dispatch = useDispatch();
-
-	const selectStepHandler = () => {
-		dispatch(setStep(stepNumber));
-	};
-
 	return (
-		<li
-			className='nav-link uppercase cursor-pointer large:flex items-center large:mb-5'
-			onClick={selectStepHandler}
-		>
+		<li className='nav-link uppercase cursor-pointer large:flex items-center large:mb-5'>
 			<div
 				tabIndex={0}
 				className={`nav-link__step ${
