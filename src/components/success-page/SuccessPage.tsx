@@ -1,6 +1,21 @@
+import { useEffect } from 'react';
 import StepTitle from '../reusable/StepTitle';
 
 const SuccessPage = () => {
+	useEffect(() => {
+		const keysToBeRemoved = [
+			'step',
+			'name',
+			'email',
+			'phone',
+			'plan',
+			'addons',
+			'pricing',
+		];
+
+		keysToBeRemoved.forEach((key) => localStorage.removeItem(key));
+	}, []);
+
 	return (
 		<form className='form pb-16 text-center'>
 			<div className='form__input flex flex-col justify-center items-center'>
