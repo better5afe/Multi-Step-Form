@@ -7,7 +7,6 @@ const NavLink: React.FC<NavLinkProps> = ({ stepNumber, stepTitle }) => {
 	return (
 		<li className='nav-link uppercase cursor-pointer large:flex items-center large:mb-5'>
 			<div
-				tabIndex={0}
 				className={`nav-link__step ${
 					currentStep === stepNumber && 'active-step'
 				} flex justify-center items-center h-[35px] w-[35px] border border-white rounded-full outline-none text-white font-medium transition-colors duration-300`}
